@@ -1,43 +1,29 @@
 #include<iostream>
+#include<vector>
+#include<assert.h>
 using namespace std;
-class Person
+
+int Repitition(vector<int>& arr)
 {
-public:
-	void print()
+	assert(!arr.empty());
+	int index = 0;
+	int num = 0;
+	for (int i=0; i < arr.size(); ++i)
 	{
-		cout << _name << "--" << _age << "--" << _gender << endl;
+		index = i;
+		num = arr[index];
+		while (num != index)
+		{
+			if (arr[num] != num)
+				swap(arr[num], num);
+			else
+				return num;
+		}
 	}
-private:
-	int _age;//年龄
-	char _gender[5];//性别
-	char _name[20];//姓名
-};
-class Student : public  Person //学生类继承自人类
+}
+int main()
 {
-private:
-	int stu_num[20];//学号
-	double garde;//成绩
-};
-class B
-{
-	B();
-public:
-	void funtest();
-private:
-	int _b;
-};
-class D :public B
-{
-public:
-	D()
-	:B()
-	, _d(0)
-	{
-	}
-private:
-	int _d;
-};
-B::B()
-{
-	cout << "B::B()" << endl;
+	vector<int> arr = {1,2,4,9,6,3,5,2,7};
+	cout << Repitition(arr);
+	return 0;
 }
