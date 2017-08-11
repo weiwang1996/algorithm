@@ -1,0 +1,48 @@
+template<class T>
+class MyQueue
+{
+public:
+	size_t  Size()const
+	{
+		return _s1.size() + _s2.size();
+	}
+	T& Front()
+	{
+		if (!_s2.empty())
+			return _s2.top();
+		_movedata();
+		return _s2.top();
+	}
+	bool Emtyp()
+	{
+		return _s1.empty() && _s2.empty();
+	}
+	void Push(const T&x)
+	{
+		_s1.push(x);
+	}
+	void Pop()
+	{
+		if (!_s2.empty())
+			_s2.pop();
+		else
+		{
+			_movedata();
+			_s2.pop();
+		}
+	
+	}
+protected:
+	void _movedata()
+	{
+while (!_s1.empty())
+		{
+				T temp = _s1.top();
+				_s1.pop();
+				_s2.push(temp);
+		}
+	}
+private:
+	stack<T> _s1;
+	stack<T> _s2;
+};
