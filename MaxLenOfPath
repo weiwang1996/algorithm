@@ -1,0 +1,13 @@
+size_t _Maxlen(Node* root, size_t &maxlen)
+	{
+		if (root == NULL)
+		{
+			return 0;
+		}
+		size_t left = _Maxlen(root->_left, maxlen);
+		size_t right = _Maxlen(root->_right, maxlen);
+
+		if ((left + right) > maxlen)
+			maxlen = left + right;
+		return left > right ? left + 1 : right + 1;
+	}
