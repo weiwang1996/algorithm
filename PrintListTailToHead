@@ -1,0 +1,18 @@
+void PrintTailToHead(Node* head)
+	{
+		stack<Node*> s;
+		Node* cur = head;
+		while (cur)
+		{
+			s.push(cur);
+			cur = cur->_next; 
+		}
+
+		while (!s.empty())
+		{
+			cout<<s.top()->_data<<" ";
+			s.pop();
+		}
+
+		cout<<endl;
+	}
