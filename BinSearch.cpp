@@ -2,7 +2,7 @@ int BinSearch(int * arr, int k,size_t n)
 {
 	assert(arr);
 	int left = 0;
-	int right = n - 1;
+	int right = n - 1;、、？、、、
 	while (left < right)
 	{
 		int mid = left+(right-left) / 2;
